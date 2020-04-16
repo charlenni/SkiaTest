@@ -73,6 +73,12 @@ namespace SkiaTest.Test
 			btnStop.IsEnabled = false;
 		}
 
+		private void OnChkBackgroundChanged(object sender, EventArgs args)
+		{
+			CPUView.InvalidateSurface();
+			GPUView.InvalidateSurface();
+		}
+
 		private void StartTimer()
 		{
 			Device.StartTimer(new TimeSpan(50000), () =>
@@ -110,9 +116,12 @@ namespace SkiaTest.Test
 
 		private void OnPaintSurface(SKCanvas canvas, SKPaint paint)
 		{
-			canvas.Clear();
+			if (chkBackground.IsChecked)
+				canvas.Clear(SKColors.DarkGray);
+			else
+				canvas.Clear();
 
-			foreach(var line in lines)
+			foreach (var line in lines)
 				canvas.DrawLine(line.Left, line.Top, line.Right, line.Bottom, paint);
 		}
 

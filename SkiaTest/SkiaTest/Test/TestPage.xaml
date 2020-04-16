@@ -13,7 +13,7 @@
         <StackLayout x:Name="ViewsLayout" Orientation="Horizontal" VerticalOptions="FillAndExpand">
             <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <skia:SKGLView x:Name="GPUView" 
-                               BackgroundColor="LightGray"
+                               BackgroundColor="DarkGray"
                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
                                AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" />
                 <Label Text="GPU" TextColor="Pink" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,0,100,20" />
@@ -31,6 +31,8 @@
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button x:Name="btnStart" Text="Start" Clicked="OnBtnStartClicked"/>
             <Button x:Name="btnStop" Text="Stop" Clicked="OnBtnStopClicked"/>
+            <CheckBox x:Name="chkBackground" CheckedChanged="OnChkBackgroundChanged" />
+            <Label Text="Set Background in Canvas.Clear()" />
         </StackLayout>
     </StackLayout>
 </ContentPage>
